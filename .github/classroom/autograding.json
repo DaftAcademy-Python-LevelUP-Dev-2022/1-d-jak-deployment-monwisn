@@ -1,0 +1,104 @@
+{
+  "tests": [
+    {
+      "name": "Task 1  setup",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_1_test_1.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task 2 &#38;&#35;45&#59; methods",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_2_test_1.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task 2 &#45; response code",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_2_test_2.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task 3 &#38;&#35;45&#59; valid examples",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_3_test_1.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task 3 &#45; invalid examples",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_3_test_2.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task 4 &#38;&#35;45&#59; saving",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_4_test_1.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task 4 dates",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_4_test_2.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task 5 &#38;&#35;45&#59; basic retrieval",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_5_test_1.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task 5 &#38;&#35;45&#59; retrieval",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_5_test_2.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Task 5 &#45; validation",
+      "setup": "sudo -H pip3 install requests",
+      "run": "python task_5_test_3.py",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+}
