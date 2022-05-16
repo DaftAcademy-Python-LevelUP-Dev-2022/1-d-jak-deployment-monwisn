@@ -1,2 +1,2 @@
 class HerokuApp:
-    app_url = " https://git.heroku.com/daft-academy-monwisn.git"  # Fill your heroku app url here
+    app_url = "https://daft-academy-monwisn.herokuapp.com"  # Fill your heroku app url here
