@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import List
 
 from fastapi import FastAPI, Request, Response, status
 from pydantic import BaseModel
@@ -66,22 +67,6 @@ def get_day(name: str, number: int, response: Response):
 
 # 1.4
 
-def validation_data(date):
-    try:
-        datetime.strptime(date, '%Y-%m-%d')
-    except ValueError:
-        return False
-    return True
-
-
-event = {
-    "id": -1,
-    "name": None,
-    "date": None,
-    "date_added": None
-}
-
-
 class EventInput(BaseModel):
     date: str
     event: str
@@ -94,25 +79,46 @@ class EventOutput(BaseModel):
     date_added: str
 
 
-@app.put("/events", response_model=EventOutput, status_code=200)
+event_id = 0
+all_events: List[EventOutput] = []
+
+
+@app.put("/events", status_code=200, response_model=EventOutput)
 def calendar(data: EventInput):
-    update_id = event['id'] + 1
-    day = datetime.date(datetime.now()).isoformat()
-    event.update({"id": update_id, "name": data.event, "date": data.date, "date_added": day})
+    global event_id
+
+    day = datetime.date(datetime.today()).isoformat()
+    event = EventOutput(
+        id=event_id,
+        name=data.event,
+        date=data.date,
+        date_added=day
+    )
+    event_id += 1
+    all_events.append(event)
 
     return event
 
 
 # 1.5
 
-@app.get("/events/{date}", status_code=200)
-def get_events(date: str, response: Response):
-    if validation_data(date):
-        if date in event["date"]:
-            return event
-        else:
-            response.status_code = status.HTTP_404_NOT_FOUND
-    else:
-        response.status_code = status.HTTP_400_BAD_REQUEST
 
-    return response.status_code
+@app.get("/events/{date}", status_code=200, response_model=List[EventOutput])
+def get_events(date: str):
+    try:
+        datetime.strptime(date, '%Y-%m-%d')
+
+    except ValueError:
+        return Response(status_code=status.HTTP_400_BAD_REQUEST)
+
+    events: List[EventOutput] = []
+
+    for event in all_events:
+        if event.date == date:
+            events.append(event)
+
+    if len(events) > 0:
+        return events
+    else:
+        return Response(status_code=status.HTTP_404_NOT_FOUND)
+
